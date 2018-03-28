@@ -8,6 +8,11 @@ registerController::registerController(StoreInventory * inventory, order * check
 {
   database = inventory;
   cart = checkout;
+  cart->addObserver(this);
+}
+
+void update(){
+  screen.displayRunningTotal(*cart);
 }
 
 void registerController::processOrder()
